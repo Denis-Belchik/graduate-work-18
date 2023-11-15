@@ -1,0 +1,9 @@
+###
+POST http://localhost:8080/users/set_password
+Content-Type: application/json
+Authorization: Basic user password
+
+{
+  "newPassword": "password",
+  "currentPassword": "password1"
+}

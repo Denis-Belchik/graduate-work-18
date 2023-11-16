@@ -1,5 +1,9 @@
 package ru.skypro.homework.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,6 +24,21 @@ public class AuthController {
 
     private final AuthService authService;
 
+    @Operation(summary = "Авторизация пользователя", description = "register", tags = {"Авторизация"})
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Пользователь авторизирован",
+                    content = @Content(
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "401",
+                    description = "Unauthorized",
+                    content = @Content(
+                    )
+            )
+    })
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
         if (authService.login(loginDto.getUsername(), loginDto.getPassword())) {
@@ -29,6 +48,21 @@ public class AuthController {
         }
     }
 
+    @Operation(summary = "Регистрация пользователя", description = "register", tags = {"Регистрация"})
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Пользователь зарегистрирован",
+                    content = @Content(
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = @Content(
+                    )
+            )
+    })
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterDto registerDto) {
         if (authService.register(registerDto)) {

@@ -8,7 +8,7 @@ import ru.skypro.homework.entity.User;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper extends MainMapper<User, UserDto>{
-
+    
     UserDto toDto(User entity);
 
     @Mapping(target = "password", ignore = true)

@@ -9,6 +9,6 @@ CREATE TABLE ad
     price       INT,
     title       VARCHAR(255),
     image       VARCHAR(255),
-    author_id   BIGINT
+    author_id   BIGINT REFERENCES users(id)
 
 );

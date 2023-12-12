@@ -1,11 +1,9 @@
 package ru.skypro.homework.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @EqualsAndHashCode
@@ -25,6 +23,8 @@ public class Image {
 
     private String mediaType;
 
+    @Lob
+    @Type(type = "binary")
     private byte[] data;
 
 }

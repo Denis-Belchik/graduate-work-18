@@ -65,7 +65,7 @@ public class AdServiceImpl implements AdService {
     @Override
     public ExtendedAdDto getAd(long id) {
         return adMapper.toExtendedAdDto(adRepository.findById(id).orElseThrow(() ->
-                new NotFoundException("Объявление с ID" + id + "не найдено")));
+                new NotFoundException("Объявление с ID " + id + " не найдено")));
     }
 
     @Override

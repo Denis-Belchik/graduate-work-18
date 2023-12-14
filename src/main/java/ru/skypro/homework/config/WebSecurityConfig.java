@@ -48,7 +48,7 @@ public class WebSecurityConfig {
                                 authorization
                                         .antMatchers(HttpMethod.OPTIONS).permitAll()
                                         .mvcMatchers(AUTH_WHITELIST).permitAll()
-                                        .antMatchers(HttpMethod.GET, "/ads", "/ads/image/**").permitAll()
+                                        .antMatchers(HttpMethod.GET, "/ads", "/ads/image/**", "/users/image/**").permitAll()
                                         .mvcMatchers("/ads/**", "/users/**").authenticated()
                 )
                 .cors()
